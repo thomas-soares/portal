@@ -1,0 +1,109 @@
+<style>
+  #container {
+    display: flex;
+    padding-top: 77px;
+  }
+
+  .blocks {
+    width: 33%;
+  }
+
+  .block-1 {
+    padding: 100px 2vw 0 6vw;
+  }
+
+  .block-2 img {
+    width: 100%;
+  }
+
+  .block-3 {
+    text-align: right;
+  }
+
+  .list-title {
+    color: #3fa110;
+  }
+
+  .block-3 ul {
+    list-style: none;
+  }
+
+  .block-3 ul li {
+    margin-bottom: 8px;
+  }
+
+  .block-3 ul li span {
+    background-color: #f4e9b4;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .title {
+    font-family: "Exo 2", sans-serif;
+    color: #333033;
+  }
+
+  .title-highlight {
+    color: #3fa110;
+  }
+
+  .blocks .content {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    #container {
+      flex-direction: column;
+      margin: 0 77px;
+    }
+
+    .blocks {
+      width: 100%;
+    }
+
+    .block-1 {
+      padding: 0;
+    }
+  }
+</style>
+
+<div id="container">
+  <div class="blocks block-1">
+    <h1 class="title">
+      Nós temos as melhores oportunidades
+      <span class="title-highlight">para você</span>
+    </h1>
+    <p class="content">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque doloribus
+      ad suscipit architecto enim reiciendis adipisci sint officia! Laboriosam
+      rem explicabo illo aliquid distinctio officiis minima nostrum non est
+      corporis.
+    </p>
+  </div>
+  <div class="blocks block-2">
+    <img
+      src="https://www.sicredi.com.br/media/home/filer_public/2022/05/25/voce_e_suas_conquistas_em_boas_maos_-_sicredi_-_pessoa_fisica.jpg"
+      alt="associada do sicredi sorrindo"
+    />
+  </div>
+  <div class="blocks block-3">
+    <h3 class="list-title">Para Você</h3>
+    <ul>
+      <li class="list-item">Câmbio</li>
+      <li class="list-item">Crédito</li>
+      <li class="list-item"><span class="badge">Novo</span>Pix</li>
+      <li class="list-item">Cartões</li>
+      <li class="list-item">Consórcios</li>
+      <li class="list-item">Investimentos</li>
+      <li class="list-item">Previdência</li>
+      <li class="list-item">Conta corrente</li>
+      <li class="list-item">Pagamentos e Recebimentos</li>
+      <li class="list-item">Seguros</li>
+    </ul>
+    <h3 class="list-title">Para sua Empresa</h3>
+    <h3 class="list-title">Para seu Agronegócio</h3>
+  </div>
+</div>

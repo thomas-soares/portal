@@ -1,0 +1,216 @@
+<style>
+  body {
+    margin: 0;
+    background: #fff;
+  }
+  #burger-menu {
+    cursor: pointer;
+    height: 77px;
+    width: 77px;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+
+    float: right;
+    background-color: #3fa110;
+  }
+  #burger-menu span,
+  #burger-menu span:before,
+  #burger-menu span:after {
+    background: #fff;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+  }
+  #burger-menu span:before,
+  #burger-menu span:after {
+    content: "";
+  }
+  #burger-menu span {
+    right: 25px;
+    top: 35px;
+    width: 27px;
+  }
+  #burger-menu span:before {
+    left: 0px;
+    top: -10px;
+    width: 27px;
+  }
+  #burger-menu span:after {
+    left: 0px;
+    top: 10px;
+    width: 27px;
+  }
+
+  #burger-menu.close span {
+    transform: rotate(-45deg);
+    top: 35px;
+    width: 27px;
+  }
+  #burger-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+  }
+  #burger-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+  }
+
+  #menu {
+    z-index: 1;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+
+    width: 56vw;
+    right: 0;
+  }
+
+  #menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+    background: #3fa110;
+  }
+
+  #menu li {
+    list-style: none;
+
+    text-align: left;
+    border-top: 1px solid #64c832;
+    margin: auto;
+    width: calc(100% - 8vw);
+  }
+
+  #menu li.active,
+  #menu li:hover {
+    background-color: #35890d;
+  }
+
+  #menu a {
+    color: #fff;
+    display: block;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-decoration: none;
+
+    margin: 0;
+    padding: 30px 56px;
+  }
+
+  #menu a.links {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: left;
+    margin: 24px auto 2vw;
+    width: calc(100% - 16vw);
+    padding: 0;
+  }
+
+  #menu a.links:hover {
+    text-decoration: underline;
+  }
+
+  .toggle-content {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    #menu {
+      width: 100vw;
+    }
+  }
+</style>
+<div id="burger-menu">
+  <span></span>
+</div>
+<div id="menu">
+  <ul>
+    <li><a href="#sobre-nos" class="toggle">Sobre nós</a></li>
+    <div class="toggle-content" id="sobre-nos">
+      <a href="#" class="links">teste 11</a>
+      <a href="#" class="links">teste 22</a>
+    </div>
+    <li><a href="#fale-com-a-gente" class="toggle">Fale com a gente</a></li>
+    <div class="toggle-content" id="fale-com-a-gente">
+      <a href="#" class="links">teste 33</a>
+    </div>
+    <li><a href="#servicos" class="toggle">Serviços</a></li>
+    <div class="toggle-content" id="servicos">
+      <a href="#" class="links">teste 44</a>
+    </div>
+    <li><a href="#para-voce" class="toggle">Para você</a></li>
+    <div class="toggle-content" id="para-voce">
+      <a href="#" class="links">teste 55</a>
+    </div>
+    <li><a href="#para-empresa" class="toggle">Para empresa</a></li>
+    <div class="toggle-content" id="para-empresa">
+      <a href="#" class="links">teste 66</a>
+    </div>
+    <li><a href="#para-agronegocio" class="toggle">Para agronegócio</a></li>
+    <div class="toggle-content" id="para-agronegocio">
+      <a href="#" class="links">teste 77</a>
+    </div>
+  </ul>
+</div>
+<script>
+  var burgerMenu = document.getElementById("burger-menu");
+  var overlay = document.getElementById("menu");
+  burgerMenu.addEventListener("click", function () {
+    this.classList.toggle("close");
+    overlay.classList.toggle("overlay");
+  });
+
+  var show = function (elem) {
+    elem.style.display = "block";
+  };
+
+  var hide = function (elem) {
+    elem.style.display = "none";
+  };
+
+  var toggle = function (elem) {
+    // If the element is visible, hide it
+    if (window.getComputedStyle(elem).display === "block") {
+      hide(elem);
+      return;
+    }
+
+    // Otherwise, show it
+    show(elem);
+  };
+
+  // Listen for click events
+  document.addEventListener(
+    "click",
+    function (event) {
+      // Make sure clicked element is our toggle
+      if (!event.target.classList.contains("toggle")) return;
+
+      // Prevent default link behavior
+      event.preventDefault();
+
+      // Get the content
+      var content = document.querySelector(event.target.hash);
+      if (!content) return;
+
+      // Toggle the content
+      toggle(content);
+    },
+    false
+  );
+</script>
